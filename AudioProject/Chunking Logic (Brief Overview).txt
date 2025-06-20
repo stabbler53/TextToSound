@@ -1,0 +1,17 @@
+Chunking Logic (Brief Overview)
+
+1. Speaker Labeling:
+   Each unique speaker in the dialogue is assigned a consistent voice label like `[S1]`, `[S2]`, etc.
+
+2. Token Counting:
+   Each dialogue line is tokenized (not just character counted) to measure how much it contributes toward the model’s limit (e.g., 1500 tokens max per chunk).
+
+3. Chunk Formation:
+   Speaker turns are added one by one into a chunk until the token count reaches the limit. Then a new chunk is started.
+
+4. No Mid-Turn Splits:
+   Chunks always preserve full speaker turns to ensure natural speech and proper speaker continuity.
+
+5. Final Output:
+   The result is a list of clean, speaker-aware, and size-controlled chunks ready for audio generation.
+
