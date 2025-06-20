@@ -13,8 +13,9 @@ The final output includes:
 
 ## ✅ Features
 
-* Chunking logic respects token limits (default: 1500 tokens)
-* Automatic speaker-to-voice mapping (\[S1], \[S2], ...)
+* Chunking logic respects token limits (default: 150 tokens)
+* Automatic speaker-to-voice mapping (\[S1], \[S2], ...) using dynamic mapping
+* Handles duplicate or similar speaker names reliably
 * Slows down speech using `pydub` post-processing
 * Supports GPU acceleration (CUDA) if available
 * Uses FFmpeg-compatible audio export
@@ -37,11 +38,11 @@ The input should be a `.txt` file containing a **JSON array** like this:
 
 ## 📦 Installation & Setup
 
-### 1. Clone the Repo (if needed)
+### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dialogue-to-audio.git
-cd dialogue-to-audio
+git clone https://github.com/stabbler53/TextToSound.git
+cd TextToSound
 ```
 
 ### 2. Create Environment (Optional but Recommended)
@@ -115,9 +116,11 @@ descript-audio-codec
 * The model is large (\~6 GB), so first load will take time.
 * If you see an error like `nvrtc-builtins64_118.dll not found`, switch to CPU or install CUDA 11.8.
 * If audio sounds too fast, speed is reduced by 15% automatically.
+* The `dia/` model folder is excluded to avoid embedding sub-repositories. Install with: `pip install nari-dia`
 
 ---
 
 ## 🧑‍💻 Author
 
 * Created by Mohamed Rashad
+
